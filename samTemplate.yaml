@@ -1,6 +1,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Outputs the time
+
+Parameters:
+    Var1:
+        Type: String
+    Var2:
+        Type: String
+
 Resources:
   TimeFunction:
     Type: AWS::Serverless::Function
@@ -15,3 +22,7 @@ Resources:
           Properties:
             Path: /TimeResource
             Method: GET
+      Environment:
+        Variables:
+          var1: !Ref Var1
+          var2: !Ref Var2
